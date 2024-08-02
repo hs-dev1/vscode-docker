@@ -56,18 +56,18 @@ export class ScaffoldFileStep<TWizardContext extends ScaffoldingWizardContext> e
         const settingsTemplatesPath = config.get<string | undefined>('scaffolding.templatePath', undefined);
         const defaultTemplatesPath = path.join(ext.context.asAbsolutePath('resources'), 'templates');
 
+        console.log('Workspace Folder:', wizardContext.workspaceFolder);
+        console.log('Dockerfile Directory:', wizardContext.dockerfileDirectory);
+        ///TODO: for flutter [dockerfileDirectory] is undefined need to check that
+
         let subPath: string;
         switch (wizardContext.platform) {
             case 'Node.js':
                 subPath = path.join('node', `${this.fileType}.template`);
                 break;
-            case '.NET: ASP.NET Core':
-            case '.NET: Console':
-                subPath = path.join('netCore', `${this.fileType}.template`);
+            case 'Flutter':
+                subPath = path.join('flutter', `${this.fileType}.template`); // adding flutter
                 break;
-            case 'Python: Django':
-            case 'Python: FastAPI':
-            case 'Python: Flask':
             case 'Python: General':
                 subPath = path.join('python', `${this.fileType}.template`);
                 break;

@@ -14,6 +14,7 @@ import { getNodeSubWizardOptions } from './node/NodeScaffoldingWizardContext';
 import { getPythonSubWizardOptions } from './python/PythonScaffoldingWizardContext';
 import { ScaffoldingWizardContext } from './ScaffoldingWizardContext';
 import { TelemetryPromptStep } from './TelemetryPromptStep';
+import { getFlutterSubWizardOptions } from './flutter/FlutterScaffoldingWizardContext';
 
 export class ChoosePlatformStep extends TelemetryPromptStep<ScaffoldingWizardContext> {
     public constructor(private readonly platformsList?: Platform[]) {
@@ -48,6 +49,8 @@ export class ChoosePlatformStep extends TelemetryPromptStep<ScaffoldingWizardCon
         switch (wizardContext.platform) {
             case 'Node.js':
                 return getNodeSubWizardOptions(wizardContext);
+            case 'Flutter':
+                return getFlutterSubWizardOptions(wizardContext);
             case '.NET: ASP.NET Core':
             case '.NET: Console':
                 return getNetCoreSubWizardOptions(wizardContext);

@@ -34,4 +34,7 @@ export interface ScaffoldingWizardContext extends IActionContext {
 
     // Other properties that get calculated or set later
     overwriteAll?: boolean;
+    // metadata?: { [key: string]: any }; // General-purpose metadata object
+    projectType?: 'flutter' | 'node' | 'python' | 'other'; // Add other project types as needed
+
 }

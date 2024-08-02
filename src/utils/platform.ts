@@ -13,6 +13,7 @@ export const AllPlatforms = [
     'Python: Flask',
     'Python: General',
     'Java',
+    'Flutter',/// adding flutter
     'C++',
     'Go',
     'Ruby',
